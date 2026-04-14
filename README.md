@@ -75,7 +75,7 @@ else if (Pulse > 100)
 {
     Level = 3;
 }
-else if (Temperature >= 38)
+else if (Temperature >= 37.5)
 {
     Level = 4;
 }
