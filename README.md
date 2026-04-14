@@ -37,13 +37,13 @@ Patients are categorized into 4 levels based on:
 - Total patient count
 - Filtered views:
   
- Today
+     Today
 
-  Yesterday
+     Yesterday
   
-  Last 7 days
+     Last 7 days
   
-  Last 30 days
+     Last 30 days
 
 
 ## Automatic Daily Reset
