@@ -1,0 +1,43 @@
+﻿
+@page
+@model TriageModel
+<h2>Triage System</h2>
+
+<form method="post">
+<label>Temperature:</label>
+<input type="number" name="Temperature" value="@Model.Temperature" lang="en" />
+
+<label>Oxygen:</label>
+ <input type="number" name="Oxygen" value="@Model.Oxygen" lang="en" />
+
+<label>Pulse:</label>
+<input type="number" name="Pulse" value="@Model.Pulse" lang="en" />
+    
+<label>Blood Pressure:</label>
+<input type="number" name="BloodPressure" value="@Model.BloodPressure" lang="en" />
+
+    @{
+        System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
+    }
+
+ <button type="submit">Check Level</button>
+ <button type="reset">Reset</button>
+</form>
+
+@if (Model.Level != 0)
+{
+    string color = "";
+
+    if (Model.Level == 4)
+        color = "red";
+    else if (Model.Level == 3)
+        color = "orange";
+    else if (Model.Level == 2)
+        color = "gold";
+    else
+        color = "green";
+
+    <h3 style="color:@color">
+        Patient Level: @Model.Level
+    </h3>
+}

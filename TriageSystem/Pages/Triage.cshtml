@@ -1,0 +1,158 @@
+﻿@page
+@model TriageModel1
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Triage System</title>
+
+<style>
+body {
+font-family: Arial;
+background-color: #f4f6f9;
+margin: 0;
+}
+
+.container {
+width: 400px;
+margin: 50px auto;
+background: white;
+padding: 25px;
+border-radius: 10px;
+box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+text-align: center;
+color: #2c3e50;
+}
+
+label {
+display: block;
+margin-top: 10px;
+font-weight: bold;
+}
+
+input {
+width: 100%;
+padding: 8px;
+margin-top: 5px;
+border: 1px solid #ccc;
+border-radius: 5px;
+}
+
+button {
+width: 100%;
+margin-top: 10px;
+padding: 10px;
+background-color: #3498db;
+color: white;
+border: none;
+border-radius: 5px;
+font-size: 16px;
+cursor: pointer;
+}
+
+button:hover {
+background-color: #2980b9;
+}
+
+.reset-btn {
+background-color: #95a5a6;
+}
+
+.reset-btn:hover {
+background-color: #7f8c8d;
+}
+
+.result {
+margin-top: 20px;
+padding: 12px;
+border-radius: 5px;
+text-align: center;
+font-weight: bold;
+font-size: 18px;
+}
+
+.level5 { background-color: #e2e3e5; color: #41464b; }
+.level4 { background-color: #d4edda; color: #155724; }
+.level3 { background-color: #fff3cd; color: #856404; }
+.level2 { background-color: #ffe5b4; color: #8a4b08; }
+.level1 { background-color: #f8d7da; color: #721c24; }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>Triage System</h1>
+
+<form method="post">
+
+<label>Temperature</label>
+<input type="text" name="Temperature" value="@Model.Temperature" inputmode="numeric" required />
+
+<label>Oxygen</label>
+<input type="text" name="Oxygen" value="@Model.Oxygen" inputmode="numeric" required />
+
+<label>Pulse</label>
+<input type="text" name="Pulse" value="@Model.Pulse" inputmode="numeric" required />
+
+<label>Blood Pressure</label>
+<input type="text" name="BloodPressure" value="@Model.BloodPressure" inputmode="numeric" required />
+
+<label>Respiratory Rate</label>
+<input type="text" name="RespiratoryRate" value="@Model.RespiratoryRate" inputmode="numeric" required />
+
+
+
+
+<button type="submit">Check Level</button>
+<button type="button" onclick="window.location.href='/Triage'">Reset</button>
+
+
+</form>
+
+@if (Model.Level != 0)
+{
+if (Model.Level == 1)
+{
+<p>Immediate</p>
+}
+else if (Model.PatientsBeforeCount == 0)
+{
+<p>No patients waiting</p>
+}
+else if (Model.PatientsBeforeCount == 1)
+{
+<p>1 patient waiting</p>
+}
+else
+{
+<p>@Model.PatientsBeforeCount patients waiting</p>
+}
+
+
+string cssClass = "";
+
+if (Model.Level == 1)
+cssClass = "level1";
+else if (Model.Level == 2)
+cssClass = "level2";
+else if (Model.Level == 3)
+cssClass = "level3";
+else if (Model.Level == 4)
+cssClass = "level4";
+else if (Model.Level == 5)
+cssClass = "level5";
+
+<div class="result @cssClass">
+Patient Level: @Model.Level
+</div>
+}
+
+</div>
+
+</body>
+</html>
