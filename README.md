@@ -15,6 +15,7 @@ This system simulates a real emergency department workflow by:
 
 ## Features
 Triage Classification
+
 Patients are categorized into 4 levels based on:
 - Temperature
 - Oxygen Saturation (SpO₂)
