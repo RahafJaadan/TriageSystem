@@ -108,7 +108,9 @@ else
 git clone https://github.com/RahafJaadan/triage-system.git
 ```
 2- Open the project in Visual Studio
+
 3- Run the application
+
 4- Start adding patients and explore the dashboard
 
 
