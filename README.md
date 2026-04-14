@@ -36,6 +36,7 @@ Patients are categorized into 4 levels based on:
 - Doughnut chart representing triage levels 
 - Total patient count
 - Filtered views:
+  
  Today
 
   Yesterday
